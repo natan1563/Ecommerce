@@ -4,7 +4,6 @@
   - PHP Orientado a Objetos
   - SlimFramewor
   - PHPMailer
-  - BOOTSTRAP
   - Composer
   - RainTPL
   - HTML5 
