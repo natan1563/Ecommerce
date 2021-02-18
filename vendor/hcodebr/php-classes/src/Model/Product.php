@@ -19,6 +19,21 @@ class Product extends Model
 
     }
 
+    public static function checkList($list)
+    {
+        foreach ($list as &$row) {
+
+            $p = new Product();
+
+            $p->setData($row);
+
+            $row = $p->getValues();
+
+        }
+
+        return $list;
+    }
+
     public function save()
     {
         $sql = new Sql();
@@ -70,7 +85,7 @@ class Product extends Model
             . DIRECTORY_SEPARATOR . $this->getidproduct() . ".jpg"
             
             )) {
-                $url = '/views/res/site/img/products/' . $this->getidproduct() . "jpg";
+                $url = '/views/res/site/img/products/' . $this->getidproduct() . ".jpg";
             } else {
                 $url = '/views/res/site/img/product.jpg';
             }
