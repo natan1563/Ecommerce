@@ -2,6 +2,7 @@
 
 //Home
 
+use Hcode\Model\Cart;
 use Hcode\Model\Category;
 use Hcode\Model\Product;
 use Hcode\Page;
@@ -62,6 +63,15 @@ $app->get("/products/:desurl", function($desurl) {
 		'categories' => $product->getCategories()
 	]);
 
+});
+
+$app->get('/cart', function(){
+	
+	$cart = Cart::getFromSession();
+	
+	$page = new Page();
+
+	$page->setTpl('cart');
 });
 
 ?>
